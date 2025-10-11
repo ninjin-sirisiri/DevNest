@@ -27,7 +27,7 @@ import { useLocale } from '../../contexts/index';
 // ... (rest of the imports)
 
 export const Header = ({ session }: { session: Session | null }) => {
-	const { lang, changeLocale } = useLocale();
+	const { lang, locale, changeLocale } = useLocale();
 
 	return (
 		<div className="grid grid-cols-3 items-center bg-background/70 p-2 sticky top-0 z-10 border-b border-border/50 liquid-glass-filter">
@@ -98,7 +98,7 @@ export const Header = ({ session }: { session: Session | null }) => {
 											<Link
 												href={`/user/${session.user.id}`}
 											>
-												Profile
+												{locale('auth.profile')}
 											</Link>
 										</DropdownMenuItem>
 									)}

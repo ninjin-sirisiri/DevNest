@@ -1,1 +1,8 @@
-{}
+{
+	"auth.profile": "Profile",
+	"auth.sign_out": "Sign out",
+	"searchbar.search_tag": "Search tags...",
+	"theme.light": "Light",
+	"theme.dark": "Dark",
+	"theme.system": "System"
+}

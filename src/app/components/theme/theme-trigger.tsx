@@ -12,7 +12,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+import { useLocale } from "../../contexts/index";
+
 export function ThemeToggle() {
+  const { locale } = useLocale();
   const { setTheme } = useTheme();
 
   return (
@@ -26,13 +29,13 @@ export function ThemeToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="liquid-glass-card">
         <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
+          {locale("theme.light")}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
+          {locale("theme.dark")}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
+          {locale("theme.system")}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

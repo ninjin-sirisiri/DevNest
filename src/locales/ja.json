@@ -1,1 +1,8 @@
-{}
+{
+	"auth.profile": "プロフィール",
+	"auth.sign_out": "サインアウト",
+	"searchbar.search_tag": "タグを検索",
+	"theme.light": "ライト",
+	"theme.dark": "ダーク",
+	"theme.system": "システム"
+}
