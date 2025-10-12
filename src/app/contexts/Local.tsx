@@ -9,7 +9,7 @@ import {
 	ReactNode,
 } from 'react';
 import config from '../Config';
-import { Store } from '../Store';
+import { getLanguage as getStoreLanguage, setLanguage as setStoreLanguage } from '../Store';
 import English from '../../locales/en.json';
 
 interface Locale {
@@ -73,15 +73,15 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 	const changeLocale = useCallback(
 		async (newLang: string) => {
 			await loadLocale(newLang);
-			Store.setLanguage(newLang);
+			setStoreLanguage(newLang);
 			setLanguage(newLang);
 		},
-		[lang]
+		[]
 	);
 
 	useEffect(() => {
 		(async () => {
-			const target = Store.getLanguage();
+			const target = getStoreLanguage();
 			console.log('Initial language:', target);
 			await Promise.all([
 				loadLocale('en'),
