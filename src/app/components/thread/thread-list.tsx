@@ -32,11 +32,15 @@ export const ThreadList = () => {
   const [realtimeEnabled, setRealtimeEnabled] = useState(true);
   const [showRetryOption, setShowRetryOption] = useState(false);
 
-  const fetchAllThreads = useCallback(async (take: number, cursor?: string) => {
+  const fetchAllThreads = useCallback(async (take: number, cursor?: string, replace: boolean = false) => {
     setLoading(true);
     const response = await fetchAllThreadsAction(sortOrder, take, cursor);
     if (response.success) {
-      setThreads((prevThreads) => [...prevThreads, ...response.data.threads]);
+      if (replace) {
+        setThreads(response.data.threads);
+      } else {
+        setThreads((prevThreads) => [...prevThreads, ...response.data.threads]);
+      }
       setHasMore(response.data.hasMore);
       setNextCursor(response.data.threads[response.data.threads.length - 1]?.id);
     } else {
@@ -50,7 +54,7 @@ export const ThreadList = () => {
     setThreads([]); // Clear threads on sort order change
     setNextCursor(undefined); // Reset cursor
     setHasMore(true); // Assume more data initially
-    fetchAllThreads(10); // Initial load of 10 threads
+    fetchAllThreads(10, undefined, true); // Initial load of 10 threads, replacing any existing ones
 
     if (!realtimeEnabled) return; // Realtimeが無効化されている場合は処理しない
 
@@ -63,7 +67,7 @@ export const ThreadList = () => {
           setThreads([]); // Clear threads on real-time update
           setNextCursor(undefined); // Reset cursor
           setHasMore(true); // Assume more data initially
-          fetchAllThreads(10); // Reload initial 10 threads
+          fetchAllThreads(10, undefined, true); // Reload initial 10 threads, replacing any existing ones
         }
       )
       .on(
@@ -73,7 +77,7 @@ export const ThreadList = () => {
           setThreads([]); // Clear threads on real-time update
           setNextCursor(undefined); // Reset cursor
           setHasMore(true); // Assume more data initially
-          fetchAllThreads(10); // Reload initial 10 threads
+          fetchAllThreads(10, undefined, true); // Reload initial 10 threads, replacing any existing ones
         }
       )
       .subscribe();
