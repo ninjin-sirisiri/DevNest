@@ -1,8 +1,22 @@
 {
+	"anonymous": "名無しさん",
 	"auth.profile": "プロフィール",
 	"auth.sign_out": "サインアウト",
+	"post.edit": "ポストを編集",
 	"searchbar.search_tag": "タグを検索",
+	"sort.newest": "新しい順",
+	"sort.oldest": "古い順",
+	"sort.most_comments": "コメント数順",
+	"sort.most_comments_last_week": "先週のコメント数順",
+	"sort.most_replies": "返信数順",
 	"theme.light": "ライト",
 	"theme.dark": "ダーク",
-	"theme.system": "システム"
+	"theme.system": "システム",
+	"thread.delete": "削除",
+	"thread.delete.alert.title": "本当に削除しますか？",
+	"thread.delete.alert.desc": "この操作は元に戻せません。\nこのスレッドとそのすべての投稿が永久に削除されます。",
+	"thread.delete.alert.cancel": "キャンセル",
+	"thread.delete.alert.continue": "削除",
+	"thread.deleting": "削除中...",
+	"thread.edit": "スレッドを編集"
 }

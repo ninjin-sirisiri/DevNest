@@ -14,6 +14,8 @@ import { ThreadDeleteButton } from "./thread-delete-button";
 
 import { memo } from "react";
 
+import { useLocale } from "@/app/contexts/index";
+
 const ThreadHeaderComponent = ({
   thread,
   user,
@@ -21,6 +23,7 @@ const ThreadHeaderComponent = ({
   thread: ThreadHeaderData;
   user: Session["user"] | undefined;
 }) => {
+  const { locale } = useLocale();
   // Determine display name based on isAnonymous status
   const displayName = thread.user.isAnonymous ? "anonymous" : thread.user.name;
   // No need for displayImage, AvatarFallback will handle it
@@ -83,7 +86,7 @@ const ThreadHeaderComponent = ({
           <Link href={`/thread/${thread.id}/edit`}>
             <Button variant="edit">
               <EditIcon className="mr-2 size-4" />
-              Edit Thread
+              {locale("thread.edit")}
             </Button>
           </Link>
           <ThreadDeleteButton threadId={thread.id} />

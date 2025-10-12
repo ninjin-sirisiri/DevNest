@@ -17,6 +17,8 @@ import { PostListSkeleton } from "./post/post-list-skeleton";
 import { ThreadHeader } from "./thread/thread-header";
 import { ThreadHeaderSkeleton } from "./thread/thread-header-skeleton";
 
+import { useLocale } from '@/app/contexts/index';
+
 export const PageField = ({
   threadId,
   session,
@@ -27,6 +29,7 @@ export const PageField = ({
   const [threadHeader, setThreadHeader] = useState<ThreadHeaderData | null>(
     null
   );
+  const { locale } = useLocale();
   const [sortOrder, setSortOrder] = useState<PostSortOrder>("oldest");
 
   const fetchThreadHeader = useCallback(async () => {
@@ -113,19 +116,19 @@ export const PageField = ({
             variant={sortOrder === "newest" ? "default" : "outline"}
             onClick={() => setSortOrder("newest")}
           >
-            Newest
+            {locale("sort.newest")}
           </Button>
           <Button
             variant={sortOrder === "oldest" ? "default" : "outline"}
             onClick={() => setSortOrder("oldest")}
           >
-            Oldest
+            {locale("sort.oldest")}
           </Button>
           <Button
             variant={sortOrder === "most_replies" ? "default" : "outline"}
             onClick={() => setSortOrder("most_replies")}
           >
-            Most Replies
+            {locale("sort.most_replies")}
           </Button>
         </ButtonGroup>
       </div>

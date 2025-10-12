@@ -26,6 +26,8 @@ import { ReplyIcon } from "@/components/icons/reply-icon";
 import { PostDeleteButton } from "./post-delete-button";
 import { PostCardSkeleton } from "./post-card-skeleton";
 
+import { useLocale } from '@/app/contexts/index';
+
 // Dynamically import the PostCard for replies to code-split the bundle.
 const DynamicPostCard = dynamic(
   () => import("./post-card").then((mod) => mod.PostCard),
@@ -43,6 +45,8 @@ const PostCardComponent = ({
 }) => {
   const [replies, setReplies] = useState<PostWithUserAndTagsAndReplies[]>([]);
   const [showReplies, setShowReplies] = useState(false);
+
+  const { locale } = useLocale();
 
   const isAuthor = post.user.id === user?.id;
   const displayName = post.user.isAnonymous ? "anonymous" : post.user.name;
@@ -140,7 +144,7 @@ const PostCardComponent = ({
                       variant="edit"
                     >
                       <EditIcon className="size-4 sm:mr-2" />
-                      <span className="hidden sm:inline">Edit Post</span>
+                      <span className="hidden sm:inline">{locale("post.edit")}</span>
                     </Button>
                   </Link>
                   <PostDeleteButton postId={post.id} />

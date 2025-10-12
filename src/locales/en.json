@@ -1,8 +1,22 @@
 {
+	"anonymous": "Anonymous",
 	"auth.profile": "Profile",
 	"auth.sign_out": "Sign out",
+	"post.edit": "Edit Post",
 	"searchbar.search_tag": "Search tags...",
+	"sort.newest": "Newest",
+	"sort.oldest": "Oldest",
+	"sort.most_comments": "Most Comments",
+	"sort.most_comments_last_week": "Most Comments (Last Week)",
+	"sort.most_replies": "Most Replies",
 	"theme.light": "Light",
 	"theme.dark": "Dark",
-	"theme.system": "System"
+	"theme.system": "System",
+	"thread.delete": "Delete",
+	"thread.delete.alert.title": "Are you absolutely sure?",
+	"thread.delete.alert.desc": "This action cannot be undone. This will permanently delete this \n thread and all of its posts.",
+	"thread.delete.alert.cancel": "Cancel",
+	"thread.delete.alert.continue": "Continue",
+	"thread.deleting": "Deleting...",
+	"thread.edit": "Edit Thread"
 }
