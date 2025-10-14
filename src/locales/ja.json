@@ -24,5 +24,6 @@
 	"thread.delete.alert.continue": "削除",
 	"thread.deleting": "削除中...",
 	"thread.edit": "スレッドを編集",
+	"thread.new": "新しいスレッド",
 	"threads": "スレッド"
 }

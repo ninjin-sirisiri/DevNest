@@ -24,5 +24,6 @@
 	"thread.delete.alert.continue": "Continue",
 	"thread.deleting": "Deleting...",
 	"thread.edit": "Edit Thread",
+	"thread.new": "New Thread",
 	"threads": "Threads"
 }
