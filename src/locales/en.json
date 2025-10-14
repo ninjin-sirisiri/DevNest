@@ -23,6 +23,7 @@
 	"thread.create.desc.preview":"Preview",
 	"thread.create.desc.preview.empty":"Nothing to preview",
 	"thread.create.desc.write":"Write",
+	"thread.create.submit":"Create Thread",
 	"thread.create.tags":"Tags (comma-separated)",
 	"thread.create.tags.desc":"Tags should be comma-separated.",
 	"thread.create.tags.suggestion":"Or select from existing tags",
