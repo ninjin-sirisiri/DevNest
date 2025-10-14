@@ -17,6 +17,7 @@
 	"theme.light": "ライト",
 	"theme.dark": "ダーク",
 	"thread.create": "新しいスレッドを作成",
+	"thread.create.title": "スレッドのタイトル",
 	"theme.system": "システム",
 	"thread.delete": "削除",
 	"thread.delete.alert.title": "本当に削除しますか？",
@@ -26,5 +27,6 @@
 	"thread.deleting": "削除中...",
 	"thread.edit": "スレッドを編集",
 	"thread.new": "新しいスレッド",
-	"threads": "スレッド"
+	"threads": "スレッド",
+	"title": "タイトル"
 }
