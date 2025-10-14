@@ -21,6 +21,8 @@
 	"thread.create.desc":"スレッドの内容をMarkdownで記述",
 	"thread.create.desc.preview":"プレビュー",
 	"thread.create.desc.preview.empty":"表示する内容がありません",
+	"thread.create.tags":"タグ（コンマ区切り）",
+	"thread.create.tags.desc":"タグはコンマで区切ってください。",
 	"thread.create.desc.write":"記述",
 	"thread.create.title": "スレッドのタイトル",
 	"theme.system": "システム",
