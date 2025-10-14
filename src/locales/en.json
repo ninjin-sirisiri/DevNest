@@ -17,6 +17,7 @@
 	"theme.light": "Light",
 	"theme.dark": "Dark",
 	"theme.system": "System",
+	"thread.create": "Create a new thread",
 	"thread.delete": "Delete",
 	"thread.delete.alert.title": "Are you absolutely sure?",
 	"thread.delete.alert.desc": "This action cannot be undone. This will permanently delete this \n thread and all of its posts.",

@@ -16,6 +16,7 @@
 	"sort.most_replies": "返信数順",
 	"theme.light": "ライト",
 	"theme.dark": "ダーク",
+	"thread.create": "新しいスレッドを作成",
 	"theme.system": "システム",
 	"thread.delete": "削除",
 	"thread.delete.alert.title": "本当に削除しますか？",
