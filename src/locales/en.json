@@ -25,6 +25,7 @@
 	"thread.create.desc.write":"Write",
 	"thread.create.tags":"Tags (comma-separated)",
 	"thread.create.tags.desc":"Tags should be comma-separated.",
+	"thread.create.tags.suggestion":"Or select from existing tags",
 	"thread.create.title":"Thread title",
 	"thread.delete": "Delete",
 	"thread.delete.alert.title": "Are you absolutely sure?",
