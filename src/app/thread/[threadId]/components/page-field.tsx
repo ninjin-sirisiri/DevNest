@@ -143,7 +143,7 @@ export const PageField = ({
       >
         <Button className="flex items-center justify-center rounded-full pr-4 shadow-lg bg-primary/70 backdrop-blur-lg border border-primary/50 hover:bg-primary/80">
           <PlusIcon className="mr-2 size-4" />
-          New Post
+          {locale("post.new")}
         </Button>
       </Link>
     </div>
