@@ -1,8 +1,13 @@
 {
 	"anonymous": "名無しさん",
+	"anonymous.mode_on": "匿名モード オン",
+	"anonymous.mode_off": "匿名モード オフ",
 	"auth.profile": "プロフィール",
 	"auth.sign_out": "サインアウト",
 	"post.edit": "ポストを編集",
+	"post.empty": "まだポストがありません。",
+	"post.empty_desc": "最初に返信しましょう!",
+	"posts": "ポスト",
 	"searchbar.search_tag": "タグを検索",
 	"sort.newest": "新しい順",
 	"sort.oldest": "古い順",
@@ -18,5 +23,6 @@
 	"thread.delete.alert.cancel": "キャンセル",
 	"thread.delete.alert.continue": "削除",
 	"thread.deleting": "削除中...",
-	"thread.edit": "スレッドを編集"
+	"thread.edit": "スレッドを編集",
+	"threads": "スレッド"
 }

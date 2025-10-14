@@ -1,8 +1,13 @@
 {
 	"anonymous": "Anonymous",
+	"anonymous.mode_on": "Anonymous Mode ON",
+	"anonymous.mode_off": "Anonymous Mode OFF",
 	"auth.profile": "Profile",
 	"auth.sign_out": "Sign out",
 	"post.edit": "Edit Post",
+	"post.empty": "No posts found.",
+	"post.empty_desc": "Be the first to reply!",
+	"posts": "Posts",
 	"searchbar.search_tag": "Search tags...",
 	"sort.newest": "Newest",
 	"sort.oldest": "Oldest",
@@ -18,5 +23,6 @@
 	"thread.delete.alert.cancel": "Cancel",
 	"thread.delete.alert.continue": "Continue",
 	"thread.deleting": "Deleting...",
-	"thread.edit": "Edit Thread"
+	"thread.edit": "Edit Thread",
+	"threads": "Threads"
 }
