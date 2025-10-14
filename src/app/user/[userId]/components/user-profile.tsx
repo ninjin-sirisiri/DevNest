@@ -11,6 +11,7 @@ import { EditIcon } from "@/components/icons/edit-icon";
 import { UserPostList } from "./user-post-list";
 import { UserThreadList } from "./user-thread-list";
 import { AnonymousToggle } from "./anonymous-toggle"; // New import
+import { UserTabsList } from "./user-tabs-list";
 
 type Props = {
   userId: string;
@@ -67,10 +68,7 @@ export const UserProfile = async ({ userId }: Props) => {
         )}
       </Card>
       <Tabs defaultValue="threads">
-        <TabsList>
-          <TabsTrigger value="threads">Threads</TabsTrigger>
-          <TabsTrigger value="posts">Posts</TabsTrigger>
-        </TabsList>
+        <UserTabsList />
         <TabsContent value="threads">
           <UserThreadList threads={user.threads} />
         </TabsContent>
