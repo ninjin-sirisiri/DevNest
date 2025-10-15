@@ -45,6 +45,9 @@
 	"thread.delete.alert.continue": "削除",
 	"thread.deleting": "削除中...",
 	"thread.edit": "スレッドを編集",
+	"thread.edit.cancel": "キャンセル",
+	"thread.edit.submit": "スレッドを更新",
+	"thread.edit.submitting": "更新中...",
 	"thread.new": "新しいスレッド",
 	"threads": "スレッド",
 	"title": "タイトル"

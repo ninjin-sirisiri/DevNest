@@ -17,6 +17,7 @@ import { DescriptionField } from "@/app/thread/create/components/fields/descript
 import { TagsField } from "@/app/thread/create/components/fields/tags-field";
 import { TagSuggestion } from "@/app/thread/create/components/fields/tag-suggestion";
 import { ThreadPageData } from "@/types/thread";
+import { useLocale } from '@/app/contexts/index'
 
 type Tag = {
   id: string;
@@ -29,6 +30,7 @@ interface ThreadEditFormProps {
 }
 
 export const ThreadEditForm = ({ allTags, thread }: ThreadEditFormProps) => {
+  const { locale } = useLocale();
   const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -82,13 +84,13 @@ export const ThreadEditForm = ({ allTags, thread }: ThreadEditFormProps) => {
           <ButtonGroup>
             <Button variant="edit" type="submit" disabled={form.formState.isSubmitting}>
               {form.formState.isSubmitting ? (
-                <><Spinner className="mr-2" /> Updating...</>
+                <><Spinner className="mr-2" />{locale("thread.edit.submitting")}</>
               ) : (
-                "Update Thread"
+                locale("thread.edit.submit")
               )}
             </Button>
             <Button type="button" variant="outline" onClick={() => router.back()}>
-              Cancel
+              {locale("thread.edit.cancel")}
             </Button>
           </ButtonGroup>
         </form>

@@ -45,6 +45,9 @@
 	"thread.delete.alert.continue": "Continue",
 	"thread.deleting": "Deleting...",
 	"thread.edit": "Edit Thread",
+	"thread.edit.cancel": "Cancel",
+	"thread.edit.submit": "Update Thread",
+	"thread.edit.submitting": "Updating...",
 	"thread.new": "New Thread",
 	"threads": "Threads",
 	"title":"Title"
