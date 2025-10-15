@@ -156,7 +156,7 @@ const PostCardComponent = ({
                     variant="reply"
                   >
                     <ReplyIcon className="size-4 sm:mr-2" />
-                    <span className="hidden sm:inline">Reply</span>
+                    <span className="hidden sm:inline">{locale("reply")}</span>
                   </Button>
                 </Link>
               </div>
@@ -176,7 +176,7 @@ const PostCardComponent = ({
       </Card>
       {post.replies && post.replies.length > 0 && !showReplies && (
         <Button variant="ghost" onClick={handleShowReplies}>
-          Show replies ({post.replies.length})
+          {locale("reply.show")} ({post.replies.length})
         </Button>
       )}
       {showReplies && (
