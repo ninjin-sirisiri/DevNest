@@ -6,6 +6,7 @@ import * as z from "zod";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import { ButtonGroup } from "@/components/ui/button-group";
@@ -74,7 +75,12 @@ export const ThreadEditForm = ({ allTags, thread }: ThreadEditFormProps) => {
   };
 
   return (
-    <FormProvider {...form}>
+    <Card className="w-full max-w-2xl liquid-glass-card">
+            <CardHeader>
+              <CardTitle>{locale("thread.edit")}</CardTitle>
+            </CardHeader>
+            <CardContent>
+                  <FormProvider {...form}>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <TitleField />
@@ -96,5 +102,8 @@ export const ThreadEditForm = ({ allTags, thread }: ThreadEditFormProps) => {
         </form>
       </Form>
     </FormProvider>
+
+            </CardContent>
+          </Card>
   );
 };
