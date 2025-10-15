@@ -16,6 +16,7 @@ import { updateProfileAction } from "@/lib/actions/profile";
 import { User, Thread, Post } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { useLocale } from '@/app/contexts/index'
 
 const profileFormSchema = z.object({
   name: z.string().min(2, {
@@ -36,6 +37,7 @@ interface ProfileEditFormProps {
 }
 
 export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
+  const { locale } = useLocale();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
@@ -49,7 +51,7 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
 
   async function onSubmit(data: ProfileFormValues) {
     setIsSubmitting(true);
-    
+
     try {
       await updateProfileAction(user.id, data.name, data.bio || "");
       toast.success("Profile updated successfully!");
@@ -66,8 +68,8 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Edit Profile</CardTitle>
-        <CardDescription>Update your username and bio information</CardDescription>
+        <CardTitle>{locale("profile.edit")}</CardTitle>
+        <CardDescription>{locale("profile.edit.desc")}</CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>
@@ -77,8 +79,8 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
               name="name"
               render={({ field }) => (
                 <Field>
-                  <FieldLabel>Username</FieldLabel>
-                  <Input placeholder="Your username" {...field} />
+                  <FieldLabel>{locale("profile.edit.username")}</FieldLabel>
+                  <Input placeholder={locale("profile.edit.username.desc")} {...field} />
                   <FieldError />
                 </Field>
               )}
@@ -88,9 +90,9 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
               name="bio"
               render={({ field }) => (
                 <Field>
-                  <FieldLabel>Bio</FieldLabel>
+                  <FieldLabel>{locale("profile.edit.bio")}</FieldLabel>
                   <Textarea 
-                    placeholder="Tell us about yourself..." 
+                    placeholder={locale("profile.edit.bio.desc")} 
                     className="min-h-[120px]"
                     {...field}
                   />
@@ -106,16 +108,16 @@ export const ProfileEditForm = ({ user }: ProfileEditFormProps) => {
                   onClick={() => router.push(`/user/${user.id}`)}
                   disabled={isSubmitting}
                 >
-                  Cancel
+                  {locale("profile.edit.cancel")}
                 </Button>
                 <Button 
                   type="submit" 
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
-                    <><Spinner className="mr-2" /> Saving...</>
+                    <><Spinner className="mr-2" />{locale("profile.edit.submitting")}</>
                   ) : (
-                    "Save Changes"
+                    locale("profile.edit.submit")
                   )}
                 </Button>
               </ButtonGroup>
