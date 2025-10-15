@@ -12,6 +12,7 @@ import { UserPostList } from "./user-post-list";
 import { UserThreadList } from "./user-thread-list";
 import { AnonymousToggle } from "./anonymous-toggle"; // New import
 import { UserTabsList } from "./user-tabs-list";
+import { EditProfileButton } from "./edit-profile-button";
 
 type Props = {
   userId: string;
@@ -50,12 +51,7 @@ export const UserProfile = async ({ userId }: Props) => {
               </div>
             </div>
             {isCurrentUser && (
-              <Button variant="edit" asChild>
-                <Link href={`/user/${user.id}/edit`}>
-                  <EditIcon className="size-4 sm:mr-2" />
-                  <span className="hidden sm:inline">Edit Profile</span>
-                </Link>
-              </Button>
+              <EditProfileButton user={user} />
             )}
           </div>
         </CardHeader>
