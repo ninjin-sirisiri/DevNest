@@ -15,6 +15,7 @@ import { auth } from "@/lib/auth";
 import { formatDistanceToNow } from "@/lib/utils";
 
 import { PostReplyForm } from "./components/post-reply-form";
+import { PostReplyTabList } from "./components/post-reply-tab-list";
 
 const ReplyPostPage = async ({
   params,
@@ -69,12 +70,7 @@ const ReplyPostPage = async ({
   return (
     <div className="container mx-auto py-8 flex flex-col items-center gap-4">
       <Tabs defaultValue="form" className="w-full max-w-2xl">
-        <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="form">Reply Form</TabsTrigger>
-          <TabsTrigger value="thread-context">Thread Context</TabsTrigger>
-          <TabsTrigger value="parent-post">Parent Post</TabsTrigger>
-        </TabsList>
-
+        <PostReplyTabList />
         <TabsContent value="form">
           <Card className="w-full liquid-glass-card">
             <CardHeader>
