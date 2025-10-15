@@ -20,12 +20,14 @@ import { Spinner } from "@/components/ui/spinner";
 import { deletePostAction } from "@/lib/actions/post";
 
 import { DeleteIcon } from "@/components/icons/delete-icon";
+import { useLocale } from '@/app/contexts/index';
 
 interface PostDeleteButtonProps {
   postId: string;
 }
 
 export const PostDeleteButton = ({ postId }: PostDeleteButtonProps) => {
+  const { locale } = useLocale();
   const router = useRouter();
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -52,23 +54,20 @@ export const PostDeleteButton = ({ postId }: PostDeleteButtonProps) => {
       <AlertDialogTrigger asChild>
         <Button variant="destructive" disabled={isDeleting}>
           {isDeleting ? (
-            <><Spinner className="mr-2" /> Deleting...</>
+            <><Spinner className="mr-2" />{locale("post.deleting")}</>
           ) : (
-            <><DeleteIcon className="mr-2" /> Delete</>
+            <><DeleteIcon className="mr-2" />{locale("post.delete")}</>
           )}
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-          <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete your
-            post.
-          </AlertDialogDescription>
+          <AlertDialogTitle>{locale("post.delete.alert")}</AlertDialogTitle>
+          <AlertDialogDescription>{locale("post.delete.alert.desc")}</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={handleDelete}>Continue</AlertDialogAction>
+          <AlertDialogCancel>{locale("post.delete.alert.cancel")}</AlertDialogCancel>
+          <AlertDialogAction onClick={handleDelete}>{locale("post.delete.alert.continue")}</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
