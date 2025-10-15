@@ -34,6 +34,7 @@
 	"reply.tab.form":"Reply Form",
 	"reply.tab.thread_context":"Thread Context",
 	"reply.tab.parent_post":"Parent Post",
+	"reply.title": "Reply post",
 	"reply.write":"Write",
 	"searchbar.search_tag": "Search tags...",
 	"sort.newest": "Newest",

@@ -34,6 +34,7 @@
 	"reply.tab.form":"返信フォーム",
 	"reply.tab.thread_context":"スレッドの内容",
 	"reply.tab.parent_post":"返信元のポスト",
+	"reply.title": "返信",
 	"reply.write":"記述",
 	"searchbar.search_tag": "タグを検索",
 	"sort.newest": "新しい順",

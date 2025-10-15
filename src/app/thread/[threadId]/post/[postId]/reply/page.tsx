@@ -72,14 +72,7 @@ const ReplyPostPage = async ({
       <Tabs defaultValue="form" className="w-full max-w-2xl">
         <PostReplyTabList />
         <TabsContent value="form">
-          <Card className="w-full liquid-glass-card">
-            <CardHeader>
-              <CardTitle>Reply post</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <PostReplyForm post={post} allTags={allTags} />
-            </CardContent>
-          </Card>
+          <PostReplyForm post={post} allTags={allTags} />
         </TabsContent>
 
         <TabsContent value="thread-context">
