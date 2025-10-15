@@ -23,6 +23,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { createPostAction } from "@/lib/actions/post";
 import { ThreadPageData } from "@/types/thread";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useLocale } from '@/app/contexts/index'
 
 type Post = ThreadPageData["posts"][0];
 
@@ -48,6 +49,7 @@ export const PostReplyForm = ({
       tags: "", // Populate tags
     },
   });
+  const { locale } = useLocale();
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
@@ -87,14 +89,14 @@ export const PostReplyForm = ({
                 variant={tab === "write" ? "secondary" : "ghost"}
                 onClick={() => setTab("write")}
               >
-                Write
+                {locale("reply.write")}
               </Button>
               <Button
                 type="button"
                 variant={tab === "preview" ? "secondary" : "ghost"}
                 onClick={() => setTab("preview")}
               >
-                Preview
+                {locale("reply.preview")}
               </Button>
             </div>
             <FormField
@@ -102,10 +104,10 @@ export const PostReplyForm = ({
               name="content"
               render={({ field }) => (
                 <Field>
-                  <FieldLabel>Content</FieldLabel>
+                  <FieldLabel>{locale("reply.content")}</FieldLabel>
                     {tab === "write" ? (
                       <Textarea
-                        placeholder="Write your post content here..."
+                        placeholder={locale("reply.content.desc")}
                         {...field}
                         rows={15}
                       />
@@ -124,16 +126,16 @@ export const PostReplyForm = ({
             <TagSuggestion allTags={allTags} />
             <Button variant="reply" type="submit" disabled={form.formState.isSubmitting}>
               {form.formState.isSubmitting ? (
-                <><Spinner className="mr-2" /> Replying...</>
+                <><Spinner className="mr-2" /> {locale("reply.submitting")}</>
               ) : (
-                "Reply Post"
+                locale("reply.submit")
               )}
             </Button>
           </form>
         </Form>
       </FormProvider>
       <Link href={`/thread/${post.threadId}`}>
-        <Button variant="secondary">Cancel</Button>
+        <Button variant="secondary">{locale("reply.cancel")}</Button>
       </Link>
     </div>
   );
