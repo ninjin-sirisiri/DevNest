@@ -22,6 +22,7 @@ import { createPostAction } from "@/lib/actions/post";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { formSchema } from "./schema";
+import { useLocale } from '@/app/contexts/index'
 
 type Tag = {
   id: string;
@@ -46,6 +47,7 @@ export const PostCreateForm = ({
     },
   });
 
+  const { locale } = useLocale()
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       const tagsArray = values.tags
@@ -79,14 +81,14 @@ export const PostCreateForm = ({
                 variant={tab === "write" ? "secondary" : "ghost"}
                 onClick={() => setTab("write")}
               >
-                Write
+                {locale("post.create.write")}
               </Button>
               <Button
                 type="button"
                 variant={tab === "preview" ? "secondary" : "ghost"}
                 onClick={() => setTab("preview")}
               >
-                Preview
+                {locale("post.create.preview")}
               </Button>
             </div>
             <FormField
@@ -94,10 +96,10 @@ export const PostCreateForm = ({
               name="content"
               render={({ field }) => (
                 <Field>
-                  <FieldLabel>Content</FieldLabel>
+                  <FieldLabel>{locale("post.create.content")}</FieldLabel>
                     {tab === "write" ? (
                       <Textarea
-                        placeholder="Write your post content here..."
+                        placeholder={locale("post.create.content.desc")}
                         {...field}
                         rows={15}
                       />
@@ -116,16 +118,16 @@ export const PostCreateForm = ({
             <TagSuggestion allTags={allTags} />
             <Button type="submit" disabled={form.formState.isSubmitting}>
               {form.formState.isSubmitting ? (
-                <><Spinner className="mr-2" /> Creating...</>
+                <><Spinner className="mr-2" /> {locale("post.create.submitting")}</>
               ) : (
-                "Create Post"
+                locale("post.create.submit")
               )}
             </Button>
           </form>
         </Form>
       </FormProvider>
       <Button variant="secondary" onClick={() => router.back()}>
-        Cancel
+        {locale("post.create.cancel")}
       </Button>
     </div>
   );
