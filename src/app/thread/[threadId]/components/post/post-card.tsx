@@ -49,7 +49,7 @@ const PostCardComponent = ({
   const { locale } = useLocale();
 
   const isAuthor = post.user.id === user?.id;
-  const displayName = post.user.isAnonymous ? "anonymous" : post.user.name;
+  const displayName = post.user.isAnonymous ? locale("anonymous") : post.user.name;
 
   const fetchReplies = useCallback(async () => {
     if (post.replies.length === 0) return;
