@@ -73,14 +73,7 @@ const EditPostPage = async ({
         </TabsList>
 
         <TabsContent value="form">
-          <Card className="w-full liquid-glass-card">
-            <CardHeader>
-              <CardTitle>Edit post</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <PostEditForm post={post} allTags={allTags} />
-            </CardContent>
-          </Card>
+          <PostEditForm post={post} allTags={allTags} />
         </TabsContent>
 
         <TabsContent value="context">
