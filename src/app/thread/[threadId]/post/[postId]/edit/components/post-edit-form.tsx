@@ -21,6 +21,7 @@ import { Spinner } from "@/components/ui/spinner";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TagsField } from "@/app/thread/create/components/fields/tags-field";
 import { TagSuggestion } from "@/app/thread/create/components/fields/tag-suggestion";
+import { useLocale } from '@/app/contexts/index'
 
 const formSchema = z.object({
   content: z.string().min(1, {
@@ -40,6 +41,7 @@ type PostEditFormProps = {
 };
 
 export const PostEditForm = ({ post, allTags }: PostEditFormProps) => {
+  const { locale } = useLocale();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
@@ -80,8 +82,8 @@ export const PostEditForm = ({ post, allTags }: PostEditFormProps) => {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <Tabs defaultValue="edit" className="w-full">
             <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="edit">Edit</TabsTrigger>
-              <TabsTrigger value="preview">Preview</TabsTrigger>
+              <TabsTrigger value="edit">{locale("post.edit.edit")}</TabsTrigger>
+              <TabsTrigger value="preview">{locale("post.edit.preview")}</TabsTrigger>
             </TabsList>
             <TabsContent value="edit">
               <FormField
@@ -89,9 +91,9 @@ export const PostEditForm = ({ post, allTags }: PostEditFormProps) => {
                 name="content"
                 render={({ field }) => (
                   <Field>
-                    <FieldLabel>Content</FieldLabel>
+                    <FieldLabel>{locale("post.edit.content")}</FieldLabel>
                       <Textarea
-                        placeholder="What are your thoughts?"
+                        placeholder={locale("post.edit.content.desc")}
                         className="resize-none"
                         rows={10}
                         {...field}
@@ -114,14 +116,14 @@ export const PostEditForm = ({ post, allTags }: PostEditFormProps) => {
           <div className="flex justify-end gap-2">
             <Button type="submit" disabled={isLoading}>
               {isLoading ? (
-                <><Spinner className="mr-2" /> Submitting...</>
+                <><Spinner className="mr-2" /> {locale("post.edit.submitting")}</>
               ) : (
-                "Submit"
+                locale("post.edit.submit")
               )}
             </Button>
             <Link href={`/thread/${post.threadId}`}>
               <Button type="button" variant="outline">
-                Cancel
+                {locale("post.edit.cancel")}
               </Button>
             </Link>
           </div>
