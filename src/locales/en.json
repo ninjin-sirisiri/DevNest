@@ -19,6 +19,8 @@
 	"post.edit.preview": "Preview",
 	"post.edit.submit": "Submit",
 	"post.edit.submitting": "Submitting...",
+	"post.edit.tab.edit":"Edit Post",
+	"post.edit.tab.context":"Thread Context",
 	"post.empty": "No posts found.",
 	"post.empty_desc": "Be the first to reply!",
 	"post.new":" New Post",

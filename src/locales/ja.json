@@ -24,6 +24,8 @@
 	"post.edit.preview": "プレビュー",
 	"post.edit.submit": "送信",
 	"post.edit.submitting": "送信中...",
+	"post.edit.tab.edit":"ポストを編集",
+	"post.edit.tab.context":"スレッドの内容",
 	"profile.edit.bio": "自己紹介",
 	"profile.edit.bio.desc": "自己紹介を入力してください...",
 	"profile.edit.cancel": "キャンセル",
