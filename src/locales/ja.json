@@ -8,6 +8,7 @@
 	"post.create.cancel": "キャンセル",
 	"post.create.content": "内容",
 	"post.create.content.desc": "ポストの内容を入力してください",
+	"post.create.header": "新しいポストを作成",
 	"post.create.preview": "プレビュー",
 	"post.create.submit": "ポストを作成",
 	"post.create.submitting": "作成中...",

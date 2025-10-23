@@ -8,6 +8,7 @@
 	"post.create.cancel": "Cancel",
 	"post.create.content": "Content",
 	"post.create.content.desc": "Write your post content here...",
+	"post.create.header": "Create a new post",
 	"post.create.preview": "Preview",
 	"post.create.submit": "Create Post",
 	"post.create.submitting": "Creating...",
