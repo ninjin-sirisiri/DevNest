@@ -3,6 +3,7 @@
 	"anonymous.mode_on": "Anonymous Mode ON",
 	"anonymous.mode_off": "Anonymous Mode OFF",
 	"auth.profile": "Profile",
+	"auth.sign_in": "Sign in",
 	"auth.sign_out": "Sign out",
 	"description":"Description",
 	"post.create.cancel": "Cancel",

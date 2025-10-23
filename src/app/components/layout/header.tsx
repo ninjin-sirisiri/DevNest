@@ -22,9 +22,7 @@ import { ThemeToggle } from '../theme/theme-trigger';
 import { SearchBar } from './search-bar';
 
 import config from '../../Config';
-import { useLocale } from '../../contexts/index';
-
-// ... (rest of the imports)
+import { useLocale } from '@/app/contexts/index';
 
 export const Header = ({ session }: { session: Session | null }) => {
 	const { lang, locale, changeLocale } = useLocale();
@@ -109,7 +107,7 @@ export const Header = ({ session }: { session: Session | null }) => {
 							</DropdownMenu>
 						) : (
 							<Link href="/signin">
-								<Button variant="outline">Sign in</Button>
+								<Button variant="outline">{locale("auth.sign_in")}</Button>
 							</Link>
 						)}
 					</div>

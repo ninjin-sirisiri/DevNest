@@ -3,6 +3,7 @@
 	"anonymous.mode_on": "匿名モード オン",
 	"anonymous.mode_off": "匿名モード オフ",
 	"auth.profile": "プロフィール",
+	"auth.sign_in": "サインイン",
 	"auth.sign_out": "サインアウト",
 	"description":"説明",
 	"post.create.cancel": "キャンセル",
