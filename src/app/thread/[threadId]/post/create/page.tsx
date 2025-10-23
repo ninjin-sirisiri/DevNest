@@ -7,6 +7,7 @@ import { fetchAllTagsAction } from '@/lib/actions/tag';
 import { fetchThreadHeaderAction } from '@/lib/actions/thread';
 
 import { PostCreateForm } from './components/post-create-form';
+import { PostCreateTabList } from './components/post-create-tab-list';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -55,10 +56,7 @@ const CreatePostPage = async ({
 	return (
 		<div className="container mx-auto py-8 flex flex-col items-center gap-4">
 			<Tabs defaultValue="form" className="w-full max-w-4xl">
-				<TabsList className="grid w-full grid-cols-2">
-					<TabsTrigger value="form">Create Post</TabsTrigger>
-					<TabsTrigger value="context">Thread Context</TabsTrigger>
-				</TabsList>
+				<PostCreateTabList />
 
 				<TabsContent value="form">
 					<PostCreateForm threadId={threadId} allTags={allTags} />

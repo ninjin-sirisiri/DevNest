@@ -12,6 +12,8 @@
 	"post.create.preview": "プレビュー",
 	"post.create.submit": "ポストを作成",
 	"post.create.submitting": "作成中...",
+	"post.create.tab.context":"スレッドの内容",
+	"post.create.tab.form":"ポストを作成",
 	"post.create.write": "記述",
 	"post.delete":"削除",
 	"post.delete.alert":"本当に削除しますか？",

@@ -12,6 +12,8 @@
 	"post.create.preview": "Preview",
 	"post.create.submit": "Create Post",
 	"post.create.submitting": "Creating...",
+	"post.create.tab.context":"Thread Context",
+	"post.create.tab.form":"Create Post",
 	"post.create.write": "Write",
 	"post.delete":"Delete",
 	"post.delete.alert":"Are you absolutely sure?",
