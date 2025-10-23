@@ -10,14 +10,17 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import { useLocale } from "@/app/contexts/index";
+
 const SignInPage = () => {
+  const { locale } = useLocale();
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl">Sign in to DevNest</CardTitle>
+          <CardTitle className="text-2xl">{locale("auth.sign_in.title")}</CardTitle>
           <CardDescription>
-            Choose your preferred method to sign in
+            {locale("auth.sign_in.desc")}
           </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4">
@@ -26,14 +29,14 @@ const SignInPage = () => {
             className="w-full"
             onClick={() => signIn("github", { callbackUrl: "/" })}
           >
-            Sign in with GitHub
+            {locale("auth.sign_in.github")}
           </Button>
           <Button
             variant="outline"
             className="w-full"
             onClick={() => signIn("google", { callbackUrl: "/" })}
           >
-            Sign in with Google
+            {locale("auth.sign_in.google")}
           </Button>
         </CardContent>
       </Card>
