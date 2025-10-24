@@ -3,7 +3,7 @@
 import { TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useLocale } from '@/app/contexts/index'
 
-export const PostCreateTabList = ({}) => {
+export const PostCreateTabList = () => {
     const { locale } = useLocale();
     return (
 		<TabsList className="grid w-full grid-cols-2">
