@@ -82,7 +82,6 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 	useEffect(() => {
 		(async () => {
 			const target = getStoreLanguage();
-			console.log('Initial language:', target);
 			await Promise.all([
 				loadLocale('en'),
 				...(target !== 'en' ? [loadLocale(target)] : []),
