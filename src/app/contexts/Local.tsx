@@ -52,8 +52,12 @@ async function loadLocale(language: string) {
 	if (Locales[language]) return;
 	const langConfig = config.languages.find((lang) => lang.code === language);
 	if (!langConfig) return;
-	const data = await import(`../../locales/${language}.json`);
-	Locales[language] = data.default;
+	try {
+		const data = await import(`../../locales/${language}.json`);
+		Locales[language] = data.default;
+	} catch (error) {
+		console.error(`Failed to load locale: ${language}`, error);
+	}
 }
 
 export function useLocale() {
