@@ -8,8 +8,10 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { useLocale } from '@/app/contexts/index'
 
 export const DescriptionField = () => {
+  const { locale } = useLocale()
   const { control, watch } = useFormContext();
   const [tab, setTab] = useState<'write' | 'preview'>('write');
   const description = watch('description');
@@ -20,33 +22,33 @@ export const DescriptionField = () => {
       name="description"
       render={({ field }) => (
         <Field>
-          <FieldLabel>Description</FieldLabel>
+          <FieldLabel>{locale("description")}</FieldLabel>
           <div className="flex gap-2 mb-2">
             <Button
               type="button"
               variant={tab === 'write' ? 'secondary' : 'ghost'}
               onClick={() => setTab('write')}
             >
-              Write
+              {locale("thread.create.desc.write")}
             </Button>
             <Button
               type="button"
               variant={tab === 'preview' ? 'secondary' : 'ghost'}
               onClick={() => setTab('preview')}
             >
-              Preview
+              {locale("thread.create.desc.preview")}
             </Button>
           </div>
           <div>
             {tab === 'write' ? (
               <Textarea
-                placeholder="Describe your thread in Markdown"
+                placeholder={locale("thread.create.desc")}
                 {...field}
               />
             ) : (
               <div className="prose dark:prose-invert p-3 min-h-[120px] rounded-md border border-input bg-background">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                  {description || 'Nothing to preview'}
+                  {description || locale("thread.create.desc.preview.empty")}
                 </ReactMarkdown>
               </div>
             )}

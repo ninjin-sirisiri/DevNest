@@ -15,6 +15,8 @@ import { TitleField } from "./fields/title-field";
 import { DescriptionField } from "./fields/description-field";
 import { TagsField } from "./fields/tags-field";
 import { TagSuggestion } from "./fields/tag-suggestion";
+import { useLocale } from "@/app/contexts/index";
+import { CardTitle } from "@/components/ui/card";
 
 type Tag = {
   id: string;
@@ -26,6 +28,7 @@ interface ThreadCreateFormProps {
 }
 
 export const ThreadCreateForm = ({ allTags }: ThreadCreateFormProps) => {
+  const { locale } = useLocale();
   const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -79,7 +82,7 @@ export const ThreadCreateForm = ({ allTags }: ThreadCreateFormProps) => {
             {form.formState.isSubmitting ? (
               <><Spinner className="mr-2" /> Creating...</>
             ) : (
-              "Create Thread"
+              locale("thread.create.submit")
             )}
           </Button>
         </form>
@@ -87,3 +90,8 @@ export const ThreadCreateForm = ({ allTags }: ThreadCreateFormProps) => {
     </FormProvider>
   );
 };
+
+export function ThreadCreateHeader() {
+  const { locale } = useLocale();
+  return <CardTitle>{locale("thread.create")}</CardTitle>;
+}

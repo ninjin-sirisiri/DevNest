@@ -6,6 +6,7 @@ import * as z from "zod";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import { ButtonGroup } from "@/components/ui/button-group";
@@ -17,6 +18,7 @@ import { DescriptionField } from "@/app/thread/create/components/fields/descript
 import { TagsField } from "@/app/thread/create/components/fields/tags-field";
 import { TagSuggestion } from "@/app/thread/create/components/fields/tag-suggestion";
 import { ThreadPageData } from "@/types/thread";
+import { useLocale } from '@/app/contexts/index'
 
 type Tag = {
   id: string;
@@ -29,6 +31,7 @@ interface ThreadEditFormProps {
 }
 
 export const ThreadEditForm = ({ allTags, thread }: ThreadEditFormProps) => {
+  const { locale } = useLocale();
   const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -72,7 +75,12 @@ export const ThreadEditForm = ({ allTags, thread }: ThreadEditFormProps) => {
   };
 
   return (
-    <FormProvider {...form}>
+    <Card className="w-full max-w-2xl liquid-glass-card">
+            <CardHeader>
+              <CardTitle>{locale("thread.edit")}</CardTitle>
+            </CardHeader>
+            <CardContent>
+                  <FormProvider {...form}>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <TitleField />
@@ -82,17 +90,20 @@ export const ThreadEditForm = ({ allTags, thread }: ThreadEditFormProps) => {
           <ButtonGroup>
             <Button variant="edit" type="submit" disabled={form.formState.isSubmitting}>
               {form.formState.isSubmitting ? (
-                <><Spinner className="mr-2" /> Updating...</>
+                <><Spinner className="mr-2" />{locale("thread.edit.submitting")}</>
               ) : (
-                "Update Thread"
+                locale("thread.edit.submit")
               )}
             </Button>
             <Button type="button" variant="outline" onClick={() => router.back()}>
-              Cancel
+              {locale("thread.edit.cancel")}
             </Button>
           </ButtonGroup>
         </form>
       </Form>
     </FormProvider>
+
+            </CardContent>
+          </Card>
   );
 };

@@ -34,14 +34,7 @@ const EditThreadPage = async ({
 
   return (
     <div className="container mx-auto py-8 flex justify-center">
-      <Card className="w-full max-w-2xl liquid-glass-card">
-        <CardHeader>
-          <CardTitle>Edit thread</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <ThreadEditForm allTags={allTags} thread={thread} />
-        </CardContent>
-      </Card>
+      <ThreadEditForm allTags={allTags} thread={thread} />
     </div>
   );
 };

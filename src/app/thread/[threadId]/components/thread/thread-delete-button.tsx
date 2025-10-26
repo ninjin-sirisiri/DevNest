@@ -20,12 +20,14 @@ import { Spinner } from "@/components/ui/spinner";
 import { deleteThreadAction } from "@/lib/actions/thread";
 
 import { DeleteIcon } from "@/components/icons/delete-icon";
+import { useLocale } from '@/app/contexts/index';
 
 interface ThreadDeleteButtonProps {
   threadId: string;
 }
 
 export const ThreadDeleteButton = ({ threadId }: ThreadDeleteButtonProps) => {
+  const { locale } = useLocale();
   const router = useRouter();
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -53,23 +55,22 @@ export const ThreadDeleteButton = ({ threadId }: ThreadDeleteButtonProps) => {
       <AlertDialogTrigger asChild>
         <Button variant="destructive" disabled={isDeleting}>
           {isDeleting ? (
-            <><Spinner className="mr-2" /> Deleting...</>
+            <><Spinner className="mr-2" />{locale("thread.deleting")}</>
           ) : (
-            <><DeleteIcon className="mr-2" /> Delete</>
+            <><DeleteIcon className="mr-2" />{locale("thread.delete")}</>
           )}
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogTitle>{locale("thread.delete.alert.title")}</AlertDialogTitle>
           <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete this
-            thread and all of its posts.
+            {locale("thread.delete.alert.desc")}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={handleDelete}>Continue</AlertDialogAction>
+          <AlertDialogCancel>{locale("thread.delete.alert.cancel")}</AlertDialogCancel>
+          <AlertDialogAction onClick={handleDelete}>{locale("thread.delete.alert.continue")}</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

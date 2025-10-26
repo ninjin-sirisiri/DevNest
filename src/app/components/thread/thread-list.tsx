@@ -14,6 +14,8 @@ import { supabase } from "@/lib/db/supabase";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { Button } from "@/components/ui/button";
 
+import { useLocale } from '../../contexts/index';
+
 // Constants for Realtime limits
 const REALTIME_CONNECTION_LIMIT = 200;
 const REALTIME_THRESHOLD_PERCENTAGE = 0.8; // 80%
@@ -23,6 +25,7 @@ const METRICS_POLLING_INTERVAL = 30 * 1000; // Poll every 30 seconds
 const RETRY_CONNECTION_INTERVAL = 5 * 60 * 1000; // Retry every 5 minutes
 
 export const ThreadList = () => {
+  const { locale } = useLocale();
   const [threads, setThreads] = useState<ThreadWithUserAndTags[]>([]);
   const [loading, setLoading] = useState(true);
   const [hasMore, setHasMore] = useState(true);
@@ -215,19 +218,19 @@ export const ThreadList = () => {
                 variant={sortOrder === "newest" ? "default" : "outline"}
                 onClick={() => setSortOrder("newest")}
               >
-                Newest
+                {locale("sort.newest")}
               </Button>
               <Button
                 variant={sortOrder === "oldest" ? "default" : "outline"}
                 onClick={() => setSortOrder("oldest")}
               >
-                Oldest
+                {locale("sort.oldest")}
               </Button>
               <Button
                 variant={sortOrder === "most_comments" ? "default" : "outline"}
                 onClick={() => setSortOrder("most_comments")}
               >
-                Most Comments
+                {locale("sort.most_comments")}
               </Button>
               <Button
                 variant={
@@ -237,7 +240,7 @@ export const ThreadList = () => {
                 }
                 onClick={() => setSortOrder("most_comments_last_week")}
               >
-                Most Comments (Last Week)
+                {locale("sort.most_comments_last_week")}
               </Button>
             </ButtonGroup>
           </div>

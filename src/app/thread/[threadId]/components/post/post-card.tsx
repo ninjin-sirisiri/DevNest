@@ -26,6 +26,8 @@ import { ReplyIcon } from "@/components/icons/reply-icon";
 import { PostDeleteButton } from "./post-delete-button";
 import { PostCardSkeleton } from "./post-card-skeleton";
 
+import { useLocale } from '@/app/contexts/index';
+
 // Dynamically import the PostCard for replies to code-split the bundle.
 const DynamicPostCard = dynamic(
   () => import("./post-card").then((mod) => mod.PostCard),
@@ -44,8 +46,10 @@ const PostCardComponent = ({
   const [replies, setReplies] = useState<PostWithUserAndTagsAndReplies[]>([]);
   const [showReplies, setShowReplies] = useState(false);
 
+  const { locale } = useLocale();
+
   const isAuthor = post.user.id === user?.id;
-  const displayName = post.user.isAnonymous ? "anonymous" : post.user.name;
+  const displayName = post.user.isAnonymous ? locale("anonymous") : post.user.name;
 
   const fetchReplies = useCallback(async () => {
     if (post.replies.length === 0) return;
@@ -140,7 +144,7 @@ const PostCardComponent = ({
                       variant="edit"
                     >
                       <EditIcon className="size-4 sm:mr-2" />
-                      <span className="hidden sm:inline">Edit Post</span>
+                      <span className="hidden sm:inline">{locale("post.edit")}</span>
                     </Button>
                   </Link>
                   <PostDeleteButton postId={post.id} />
@@ -152,7 +156,7 @@ const PostCardComponent = ({
                     variant="reply"
                   >
                     <ReplyIcon className="size-4 sm:mr-2" />
-                    <span className="hidden sm:inline">Reply</span>
+                    <span className="hidden sm:inline">{locale("reply")}</span>
                   </Button>
                 </Link>
               </div>
@@ -172,7 +176,7 @@ const PostCardComponent = ({
       </Card>
       {post.replies && post.replies.length > 0 && !showReplies && (
         <Button variant="ghost" onClick={handleShowReplies}>
-          Show replies ({post.replies.length})
+          {locale("reply.show")} ({post.replies.length})
         </Button>
       )}
       {showReplies && (

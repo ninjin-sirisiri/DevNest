@@ -6,6 +6,7 @@ import { useEffect, useState, useCallback } from "react";
 import { PostCard } from "./post-card";
 import { Empty, EmptyTitle, EmptyDescription } from "@/components/ui/empty";
 import { Session } from "next-auth";
+import { useLocale } from '@/app/contexts/index'
 
 export const PostList = ({
   threadId,
@@ -16,6 +17,7 @@ export const PostList = ({
   user: Session["user"] | undefined;
   sortOrder: PostSortOrder;
 }) => {
+  const { locale } = useLocale();
   const [posts, setPosts] = useState<PostWithUserAndTagsAndReplies[]>([]);
   const [loading, setLoading] = useState(true);
   const [hasMore, setHasMore] = useState(true);
@@ -78,8 +80,8 @@ export const PostList = ({
           Posts
         </h2>
         <Empty>
-          <EmptyTitle>No Posts Found</EmptyTitle>
-          <EmptyDescription>Be the first to reply!</EmptyDescription>
+          <EmptyTitle>{locale("post.empty")}</EmptyTitle>
+          <EmptyDescription>{locale("post.empty_desc")}</EmptyDescription>
         </Empty>
       </main>
     );
@@ -88,7 +90,7 @@ export const PostList = ({
   return (
     <main>
       <h2 className="text-2xl font-bold mb-4 text-foreground dark:text-foreground">
-        Posts
+        {locale("posts")}
       </h2>
       <div className="space-y-6">
         {posts.map((post) => (

@@ -1,6 +1,7 @@
 import { notFound, redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { fetchUserByIdAction } from "@/lib/actions/user";
+import { ProfileEditTitle } from "./components/title";
 import { ProfileEditForm } from "./components/profile-edit-form";
 
 type Props = {
@@ -28,7 +29,7 @@ const EditProfilePage = async ({ params }: Props) => {
 
   return (
     <div className="container mx-auto py-8 max-w-2xl">
-      <h1 className="text-3xl font-bold mb-6">Edit Profile</h1>
+      <ProfileEditTitle />
       <ProfileEditForm user={user} />
     </div>
   );

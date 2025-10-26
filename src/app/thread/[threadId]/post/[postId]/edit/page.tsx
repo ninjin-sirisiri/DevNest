@@ -13,6 +13,8 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { formatDistanceToNow } from "@/lib/utils";
 
+import { PostEditTabList } from "./components/post-edit-tab-list";
+
 const EditPostPage = async ({
   params,
 }: {
@@ -67,20 +69,10 @@ const EditPostPage = async ({
   return (
     <div className="container mx-auto py-8 flex flex-col items-center gap-4">
       <Tabs defaultValue="form" className="w-full max-w-2xl">
-        <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="form">Edit Post</TabsTrigger>
-          <TabsTrigger value="context">Thread Context</TabsTrigger>
-        </TabsList>
+        <PostEditTabList />
 
         <TabsContent value="form">
-          <Card className="w-full liquid-glass-card">
-            <CardHeader>
-              <CardTitle>Edit post</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <PostEditForm post={post} allTags={allTags} />
-            </CardContent>
-          </Card>
+          <PostEditForm post={post} allTags={allTags} />
         </TabsContent>
 
         <TabsContent value="context">

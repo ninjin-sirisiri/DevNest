@@ -3,13 +3,16 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { formatDistanceToNow } from "@/lib/utils";
 
+import { useLocale } from '@/app/contexts/index';
+
 interface UserDisplayProps {
   user: { name: string | null; image: string | null; isAnonymous?: boolean }; // Added isAnonymous
   createAt: Date;
 }
 
 export const UserDisplay = ({ user, createAt }: UserDisplayProps) => {
-  const displayName = user.isAnonymous ? "anonymous" : user.name;
+  const { locale } = useLocale();
+  const displayName = user.isAnonymous ? locale("anonymous") : user.name;
   // If anonymous, set image to null so AvatarFallback is used
   const displayImage = user.isAnonymous ? null : user.image;
 

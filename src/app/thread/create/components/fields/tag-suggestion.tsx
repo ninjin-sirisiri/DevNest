@@ -3,6 +3,7 @@
 import { useFormContext, useWatch } from "react-hook-form";
 import { Badge } from "@/components/ui/badge";
 import { FieldLabel } from "@/components/ui/field";
+import { useLocale } from '@/app/contexts/index'
 
 type Tag = {
   id: string;
@@ -14,6 +15,7 @@ interface TagSuggestionProps {
 }
 
 export const TagSuggestion = ({ allTags }: TagSuggestionProps) => {
+  const { locale } = useLocale()
   const { control, setValue, getValues } = useFormContext();
 
   const watchedTags = useWatch({
@@ -58,7 +60,7 @@ export const TagSuggestion = ({ allTags }: TagSuggestionProps) => {
 
   return (
     <div className="space-y-2">
-      <FieldLabel>Or select from existing tags</FieldLabel>
+      <FieldLabel>{locale("thread.create.tags.suggestion")}</FieldLabel>
       <div className="max-h-32 overflow-y-auto flex flex-wrap gap-2 border p-2 rounded-md">
         {filteredTags.map((tag) => (
           <Badge

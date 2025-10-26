@@ -11,7 +11,10 @@ import {
   InputGroupAddon,
 } from "@/components/ui/input-group";
 
+import { useLocale } from "../../contexts/index";
+
 export const SearchBar = () => {
+  const { locale } = useLocale();
   const [isMac, setIsMac] = useState(false);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<
@@ -111,7 +114,7 @@ export const SearchBar = () => {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setQuery(e.target.value)
           }
-          placeholder="Search tags..."
+          placeholder = {locale('searchbar.search_tag')}
           onFocus={() => query && fetchSuggestions(query)}
           onBlur={() => setTimeout(() => setIsOpen(false), 100)}
         />
